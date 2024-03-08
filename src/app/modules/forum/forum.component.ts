@@ -7,10 +7,11 @@ import { TabViewService } from '../../shared/component/layout/tabview.service';
   styleUrl: './forum.component.scss'
 })
 export class ForumComponent {
+  isExtra: boolean = false;
 
   constructor(
     private tabViewService: TabViewService,
-  ) { 
+  ) {
     this.tabViewService.currentComponent.subscribe(component => {
       if (component == 'forum') {
         this.load();
@@ -20,5 +21,9 @@ export class ForumComponent {
 
   load() {
     console.log('load forum component');
+  }
+
+  onChangeState(){
+    this.isExtra = !this.isExtra;
   }
 }
