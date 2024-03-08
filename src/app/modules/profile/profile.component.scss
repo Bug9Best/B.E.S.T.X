@@ -1,0 +1,10 @@
+:host ::ng-deep .p-carousel-prev,
+:host ::ng-deep .p-carousel-next {
+    padding: 1.5rem;
+}
+
+:host ::ng-deep .p-carousel-prev .p-icon,
+:host ::ng-deep .p-carousel-next .p-icon {
+    width: 2rem;
+    height: 2rem;
+}
