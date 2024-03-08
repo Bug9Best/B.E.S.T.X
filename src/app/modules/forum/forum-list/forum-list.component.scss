@@ -1,0 +1,24 @@
+a {
+    color: #4582ec;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    cursor: pointer;
+
+    &:hover {
+        color: #236ce9;
+        text-decoration: underline;
+    }
+}
+
+.grid-custom {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    grid-gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .grid-custom {
+        grid-template-columns: 1fr;
+    }
+}
