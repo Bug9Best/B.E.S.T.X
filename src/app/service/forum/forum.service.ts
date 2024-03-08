@@ -13,4 +13,8 @@ export interface ForumModel extends BaseModel {
 @Injectable({ providedIn: 'root' })
 export class ForumService extends BaseService<ForumModel> {
   public override path: string = "chat";
+
+  getPost(){
+    return this.http.get('https://jsonplaceholder.typicode.com/posts');
+  }
 }
