@@ -60,6 +60,8 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { ChipModule } from 'primeng/chip';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { ScrollTopModule } from 'primeng/scrolltop';
+import { CarouselModule } from 'primeng/carousel';
 
 let modules = [
   ButtonModule,
@@ -120,7 +122,9 @@ let modules = [
   SkeletonModule,
   ChipModule,
   InputGroupModule,
-  InputGroupAddonModule
+  InputGroupAddonModule,
+  ScrollTopModule,
+  CarouselModule
 ]
 
 @NgModule({
