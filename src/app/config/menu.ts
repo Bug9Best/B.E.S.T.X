@@ -8,6 +8,11 @@ export const Menu = [
         component: "home",
     },
     {
+        name_th: "โปรไฟล์",
+        name_en: "Profile",
+        component: "profile",
+    },
+    {
         name_th: "รายวิชา",
         name_en: "Course",
         component: "course",
