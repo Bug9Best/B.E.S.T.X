@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { TabView } from 'primeng/tabview';
 import { TabViewService } from '../../shared/component/layout/tabview.service';
+import { CourseControlComponent } from './course-control/course-control.component';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { TabViewService } from '../../shared/component/layout/tabview.service';
   styleUrl: './course.component.scss'
 })
 export class CourseComponent {
-  @ViewChild(TabView) tabView?: TabView;
+  isDetail: boolean = false;
 
   constructor(
     private tabViewService: TabViewService,
@@ -26,5 +26,21 @@ export class CourseComponent {
 
   load() {
     console.log('load course component');
+  }
+
+  @ViewChild(CourseControlComponent) controlComponent: CourseControlComponent;
+  onSelectedCourse(courseId: number) {
+    this.isDetail = true;
+    this.controlComponent?.setMenu([
+      {
+        label: 'หน้าแรก',
+        command: () => this.setDefaultState()
+      },
+      { label: 'รายละเอียด' },
+    ]);
+  }
+  setDefaultState() {
+    this.isDetail = false;
+    this.controlComponent?.setMenu([{ label: 'หน้าแรก' }]);
   }
 }
