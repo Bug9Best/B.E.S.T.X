@@ -1,0 +1,7 @@
+<p-tabView class="w-full" (activeIndexChange)="tabChange($event)">
+  @for (menu of listMenus; track menu) {
+  <p-tabPanel [header]="menu.name_th" [tagTabPanel]="menu.component" class="p-0">
+    <ng-container *ngComponentOutlet="getComponent(menu.component)"></ng-container>
+  </p-tabPanel>
+  }
+</p-tabView>

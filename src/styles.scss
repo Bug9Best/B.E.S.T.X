@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import "primeflex/primeflex.scss";
+@import '@ctrl/ngx-emoji-mart/picker';
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+* {
+    font-family: 'Kanit', sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --app-height: calc(100vh - 216px);
+    --height-screen: calc(100vh - 258px);
+    --height-content: calc(100vh - 248px);
+
+
+    --fc-button-text-color: #fff;
+    --fc-button-bg-color: #4582ec;
+    --fc-button-border-color: #4582ec;
+    --fc-button-hover-bg-color: #3b6fc9;
+    --fc-button-hover-border-color: #3768bd;
+    --fc-button-active-bg-color: #3768bd;
+    --fc-button-active-border-color: #3462b1;
+    --fc-button-disabled-bg: #4582ec;
+    --fc-button-disabled-border-color: #4582ec;
+    --fc-button-disabled-bg: #4582ec;
+
+    --fc-button-focus-color: #4582ec;
+
+    .fc .fc-button:focus {
+        box-shadow: 0 0 0 0.1rem #4582ec80;
+    }
+
+}
+
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: var(--height-screen);
+    border: 1px solid #e6e6e6;
+    border-radius: 0.25rem;
+    background-color: white;
+    overflow-y: hidden;
+}
+
+.h-content {
+    height: var(--height-content);
+}

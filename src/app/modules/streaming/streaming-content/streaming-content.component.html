@@ -1,0 +1,45 @@
+<div class="wrapper w-full">
+  <div class="flex flex-column h-full">
+    <div class="h-full overflow-hidden">
+      <video id="video-container" class="w-full" autoplay playsinline></video>
+    </div>
+    <div class="flex justify-content-between border-top-1 border-200 p-2">
+      <div>
+        
+      </div>
+      <div>
+        <button 
+          pButton
+          icon="pi pi-microphone"
+          class=" p-button-secondary p-button-rounded p-button-sm mr-2"
+          [ngClass]="{'p-button-danger': onAudio}"
+          (click)="onToggleMicrophone()">
+        </button>
+        
+        <button 
+          pButton
+          icon="pi pi-video"
+          class=" p-button-secondary p-button-rounded p-button-sm mr-2"
+          [ngClass]="{'p-button-danger': onCamera}"
+          (click)="onToggleStreaming()">
+        </button>
+
+        <button 
+        pButton
+        icon="pi pi-desktop"
+        class=" p-button-secondary p-button-rounded p-button-sm"
+        [ngClass]="{'p-button-danger': onShareScreen}"
+        (click)="onToggleShareScreen()">
+      </button>
+      </div>
+
+      <div>
+        <button 
+          pButton
+          icon="pi pi-users"
+          class=" p-button-text p-button-rounded p-button-sm">
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

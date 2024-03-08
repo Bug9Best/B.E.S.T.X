@@ -1,0 +1,152 @@
+<button 
+  pButton       
+  icon="pi pi-video"
+  (click)="onOpenStreaming()"
+  class="p-button-secondary p-button-sm w-full">
+  <div class="ml-3">
+    {{ labelButton }}
+  </div>
+</button>
+
+<p-dialog 
+  header="สร้างหรือเข้าร่วมสตรีมมิ่งด้วยรหัส" 
+  [(visible)]="visible" 
+  [modal]="true" 
+  [draggable]="false"
+  styleClass="w-full lg:w-7">
+  <div class="grid">
+    <div class="col-12 lg:col-6 p-3">
+      <div class="shadow-2 surface-card p-4 border-2 border-transparent border-round-md cursor-pointer" 
+        [ngClass]="{'border-blue-500': selectedType === 0}" (click)="selectedType = 0">
+        <div class="flex align-items-center mb-4">
+          <div class="mr-3">
+            <span class="inline-flex justify-content-center align-items-center bg-blue-100"           
+              style="border-radius: 4px; width:45px; height: 45px">
+              <i class="pi pi-desktop text-2xl text-indigo-600"></i>
+            </span>
+          </div>
+          <div>
+            <span class="text-900 text-xl mb-2 font-medium">สร้างสตรีมมิ่ง</span>
+          </div>
+            <p-radioButton name="selectedType" [value]="0" [(ngModel)]="selectedType" class="ml-auto"></p-radioButton>
+        </div>
+          <p class="text-600 m-0 line-height-3">
+            สร้างสตรีมมิ่งและเริ่มสตรีมมิ่งได้ทันที สามารถเชิญผู้ชมเข้าร่วมสตรีมมิ่งได้
+          </p>
+      </div>
+    </div>
+
+    <div class="col-12 lg:col-6 p-3">
+      <div class="shadow-2 surface-card p-4 border-2 border-transparent border-round-md cursor-pointer"          
+        [ngClass]="{'border-blue-500': selectedType === 1}" (click)="selectedType = 1">
+        <div class="flex align-items-center mb-4">
+          <div class="mr-3">
+            <span class="inline-flex justify-content-center align-items-center bg-orange-100" 
+              style="border-radius: 4px; width:45px; height: 45px">
+              <i class="pi pi-users text-2xl text-orange-600"></i>
+            </span>
+          </div>
+          <div>
+            <span class="text-900 text-xl mb-2 font-medium">เข้าร่วมด้วยรหัส</span>
+          </div>
+          <p-radioButton name="selectedType" [value]="1" [(ngModel)]="selectedType" class="ml-auto"></p-radioButton>
+        </div>
+        <p class="text-600 m-0 line-height-3">
+          ได้รับรหัสสตรีมมิ่งจากผู้สร้างสตรีมมิ่ง แล้วนำรหัสสตรีมมิ่งมากรอกด้านล่างนี้
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <p-divider></p-divider>
+  @if (selectedType == 0) {
+    <div [formGroup]="formData">
+      <div class="grid">
+        <div class="col-3">
+          <span class="text-600"> ชื่อสตรีมมิ่ง </span>
+        </div>
+        <div class="col-9">
+          <input type="text" 
+            pInputText 
+            class="w-full mr-2"
+            placeholder="กรอกชื่อสตรีมมิ่ง"
+            formControlName="streaming_name">
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="col-3">
+          <span class="text-600"> คำอธิบาย (Optional) </span>
+        </div>
+        <div class="col-9">
+          <textarea pInputTextarea  
+            [rows]="3"
+            [autoResize]="true"
+            class="w-full p-inputtext-sm"
+            formControlName="streaming_description">
+          </textarea>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="col-3">
+          <span class="text-600"> ความเป็นส่วนตัว </span>
+        </div>
+        <div class="col-9">
+          <p-dropdown 
+            [options]="listPrivacy" 
+            placeholder="placeholder" 
+            optionLabel="label" 
+            optionValue="value"
+            appendTo="body"
+            styleClass="w-full"
+            formControlName="streaming_privacy">
+          </p-dropdown>
+        </div>
+      </div>
+
+      @if (privacy == 'private') {
+        <div class="grid">
+          <div class="col-3">
+            <span class="text-600"> รหัสผ่าน (Optional) </span>
+          </div>
+          <div class="col-9">
+            <p-password  
+              [toggleMask]="true"
+              [feedback]="false"
+              styleClass="w-full"
+              placeholder="กรอกรหัส"
+              formControlName="streaming_password">
+            </p-password>
+          </div>
+        </div>
+      }
+
+      <div class="grid mt-1">
+        <div class="col-9 col-offset-3">
+          <button pButton 
+            class="p-button-sm w-full" 
+            label="สร้างสตรีมมิ่ง"
+            [disabled]="!formData.valid"
+            (click)="onCreateStreaming()">
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+  @else {
+  <div class="flex">
+    <input type="text" 
+      pInputText 
+      class="w-full mr-2"
+      placeholder="กรอกรหัส">
+
+    <button 
+      pButton 
+      icon="pi pi-check"
+      label="เข้าร่วมสตรีมมิ่ง"
+      class="p-button-sm w-15rem">
+    </button>
+  </div>
+  }
+</p-dialog>

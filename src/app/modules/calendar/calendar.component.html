@@ -1,0 +1,32 @@
+<div class="bg-white border-round-sm shadow-1 p-3">
+  <full-calendar [options]='calendarOptions' #calendar>
+    <ng-template #eventContent let-arg>
+      <b>{{ arg.timeText }}</b>
+      <i>{{ arg.event.title }}</i>
+    </ng-template>
+  </full-calendar>
+</div>
+
+<p-dialog header="{{ title }}" [(visible)]="displayDetail" [modal]="true" [style]="{ 'width': '30vw' }">
+  <div class="p-fluid">
+      <div class="p-field mb-4">
+          <div class="font-bold mb-1 text-lg"> รายละเอียด </div>
+          <div>{{ description }}</div>
+      </div>
+      <div class="grid">
+          <div class="col">
+              <p class="font-bold">เริ่ม</p>
+              <i class="pi pi-clock mr-2"></i>
+              {{ startDate }}
+          </div>
+          <div class="col">
+              <p class="font-bold">จบ</p>
+              <i class="pi pi-clock mr-2"></i>
+              {{ dueDate || '-' }}
+          </div>
+      </div>
+  </div>
+  <div p-footer>
+      <button label="Close" icon="pi pi-times" class="p-button-text" (click)="closeDialog()"></button>
+  </div>
+</p-dialog>
