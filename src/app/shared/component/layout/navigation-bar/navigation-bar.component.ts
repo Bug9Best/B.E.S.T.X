@@ -10,6 +10,7 @@ import { StreamingComponent } from '../../../../modules/streaming/streaming.comp
 import { NotFoundComponent } from '../../not-found/not-found.component';
 import { TabViewService } from '../tabview.service';
 import { CalendarComponent } from '../../../../modules/calendar/calendar.component';
+import { ProfileComponent } from '../../../../modules/profile/profile.component';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -21,12 +22,18 @@ export class NavigationBarComponent {
 
   constructor(
     private tabViewService: TabViewService,
-  ) { }
+  ) {
+    this.tabViewService.currentComponent.subscribe((componentName: string) => {
+      this.getComponent(componentName);
+    });
+  }
 
   getComponent(componentName: string): any {
     switch (componentName) {
       case 'home':
         return HomeComponent;
+      case 'profile':
+        return ProfileComponent;
       case 'course':
         return CourseComponent;
       case 'calendar':
