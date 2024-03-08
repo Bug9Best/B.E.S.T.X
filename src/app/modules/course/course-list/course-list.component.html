@@ -1,0 +1,20 @@
+<div class="grid">
+	@for (item of listCourse; track $index) {
+		<div class="col-12 md:col-6 lg:col-4 xl:col-3">
+			<p-card class="cursor-pointer">
+				<p-header>
+					<img src="assets/images/template-{{$index}}.jpg" alt="" srcset="">
+					<div 
+						(click)="onDetail(item)"
+						class="text-lg font-bold px-3 hover:text-blue-500">
+						asdasd
+					</div>
+				</p-header>
+				<div class="flex ">
+					<img src="assets/images/template-{{$index}}.jpg" class="border-circle" width="25" height="25">
+					<div class="text-500 ml-2">ณัฐพล ดิษฐวิบูลย์</div>
+				</div>
+			</p-card>
+		</div>
+	}
+</div>
