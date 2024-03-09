@@ -1,14 +1,9 @@
 <div class="p-card p-2">
-    <course-control>
-    </course-control>
+	<course-control>
+	</course-control>
 </div>
 
 <div class="mt-3">
-	@if (!isDetail) {
-		<course-list (onSelectedCourse)="onSelectedCourse($event)">
-		</course-list>
-	}
-	@else {
-		<course-detail></course-detail>
-	}
+	<course-list (onSelectedCourse)="onSelectedCourse($event)">
+	</course-list>
 </div>

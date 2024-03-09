@@ -1,8 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { TabViewService } from '../../shared/component/layout/tabview.service';
-import { CourseControlComponent } from './course-control/course-control.component';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'course',
@@ -10,9 +9,9 @@ import { CourseControlComponent } from './course-control/course-control.componen
   styleUrl: './course.component.scss'
 })
 export class CourseComponent {
-  isDetail: boolean = false;
 
   constructor(
+    private router: Router,
     private tabViewService: TabViewService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
@@ -28,19 +27,7 @@ export class CourseComponent {
     console.log('load course component');
   }
 
-  @ViewChild(CourseControlComponent) controlComponent: CourseControlComponent;
   onSelectedCourse(courseId: number) {
-    this.isDetail = true;
-    this.controlComponent?.setMenu([
-      {
-        label: 'หน้าแรก',
-        command: () => this.setDefaultState()
-      },
-      { label: 'รายละเอียด' },
-    ]);
-  }
-  setDefaultState() {
-    this.isDetail = false;
-    this.controlComponent?.setMenu([{ label: 'หน้าแรก' }]);
+    this.router.navigate(['/course', courseId]);
   }
 }
