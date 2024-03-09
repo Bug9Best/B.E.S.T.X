@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
+import { LayoutModule } from './shared/component/layout/layout.module';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { ToastModule } from 'primeng/toast';
     RouterOutlet,
     ToastModule,
     ConfirmDialogModule,
+    LayoutModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
