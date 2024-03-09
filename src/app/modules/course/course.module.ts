@@ -15,6 +15,14 @@ const routes: Routes = [
     path: '',
     component: CourseComponent,
   },
+  {
+    path: 'create',
+    component: CourseControlComponent,
+  },
+  {
+    path: ':id',
+    component: CourseDetailComponent,
+  }
 ];
 
 
