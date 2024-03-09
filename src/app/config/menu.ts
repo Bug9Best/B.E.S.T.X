@@ -3,32 +3,32 @@ import { ChatComponent } from "../modules/chat/chat.component";
 
 export const Menu = [
     {
-        name_th: "หน้าแรก",
+        label: "หน้าแรก",
         name_en: "Home",
         component: "home",
     },
     {
-        name_th: "โปรไฟล์",
+        label: "โปรไฟล์",
         name_en: "Profile",
         component: "profile",
     },
     {
-        name_th: "รายวิชา",
+        label: "รายวิชา",
         name_en: "Course",
         component: "course",
     },
     {
-        name_th: "ปฏิทิน",
+        label: "ปฏิทิน",
         name_en: "Calendar",
         component: "calendar",
     },
     {
-        name_th: "กระทู้",
+        label: "กระทู้",
         name_en: "Forum",
         component: "forum",
     },
     {
-        name_th: "สนทนา",
+        label: "สนทนา",
         name_en: "Chat",
         component: "chat",
     },
