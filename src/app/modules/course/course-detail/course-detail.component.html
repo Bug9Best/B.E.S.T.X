@@ -1,3 +1,73 @@
-<div class="p-card">
-    asdasd
+<div class="p-card p-2">
+  <p-breadcrumb [model]="items" styleClass="border-none" class="max-w-full cursor-pointer text-500">
+  </p-breadcrumb>
+</div>
+
+<div class="p-card mt-2 p-3">
+  <div class="overflow-hidden">
+    <img src="assets/images/hero-2.jpg" alt="Image" class="w-auto  block md:w-full" height="400">
+  </div>
+  <div class="surface-section px-4 pt-4 md:px-6 lg:px-8">
+    <div class="grid">
+      <div class="col">
+        <div class="text-5xl font-bold">
+          Create Your Own PrimeBlock with Built-in Dark Mode
+        </div>
+        <p class="line-height-3 text-lg text-left mt-3">
+          Published May 16, 2022 by Jessica Doe
+        </p>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-12 lg:col">
+        <div class="flex flex-wrap align-items-center justify-content-between mb-5 gap-5">
+          <div class="flex flex-row">
+            <span class="text-900 surface-100 inline-flex font-semibold py-2 px-3 mr-2 border-round">New</span>
+            <span class="text-900 surface-100 inline-flex font-semibold py-2 px-3 mr-2 border-round">Technology</span>
+            <span class="text-900 surface-100 inline-flex font-semibold py-2 px-3 border-round">Education</span>
+          </div>
+        </div>
+        <div class="line-height-3 text-xl text-900 mb-5">
+          Metus aliquam eleifend mi in nulla posuere. In vitae turpis massa sed
+          elementum tempus egestas sed. Dui ut ornare lectus sit. Massa ultricies
+          mi quis hendrerit.
+        </div>
+        <div class="line-height-3 text-lg text-900 mb-4">
+          Nisi est sit amet facilisis. Ac odio tempor orci dapibus ultrices in
+          iaculis nunc sed. Pellentesque pulvinar pellentesque habitant morbi
+          tristique senectus. Nullam vehicula ipsum a arcu cursus vitae congue.
+          Leo urna molestie at elementum eu facilisis. Fusce id velit ut tortor.
+          Purus non enim praesent elementum facilisis leo vel fringilla est.
+          Semper risus in hendrerit gravida rutrum quisque non tellus orci. Neque
+          convallis a cras semper. Vitae elementum curabitur vitae nunc sed.
+          Ornare massa eget egestas purus viverra accumsan in. Leo integer
+          malesuada nunc vel risus commodo viverra maecenas accumsan. Sit amet
+          risus nullam eget. Egestas maecenas pharetra convallis posuere morbi leo
+          urna molestie at.
+        </div>
+      </div>
+
+      <div class="col-12 lg:col-3 lg:border-left-1 surface-border">
+        <div class="p-3">
+          <div class="flex border-bottom-1 surface-border pb-4">
+            <img src="assets/images/avatar.png" class="mr-3 h-5rem w-5rem" />
+            <div class="flex flex-column align-items-start">
+              <span class="text-lg text-900 font-medium mb-1">Jessica Doe</span>
+              <span class="text-600 font-medium mb-2">1.7K Followers</span>
+              <button pButton pRipple label="ติดตาม" icon="pi pi-plus"
+                class="p-button-rounded p-button-primary p-button-sm"></button>
+            </div>
+          </div>
+          <div class="mt-3">
+            <button pButton pRipple
+              label="เข้าร่วมรายวิชา" 
+              icon="pi pi-plus"
+              class="w-full p-button-sm"
+              (click)="regisCourse()">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
