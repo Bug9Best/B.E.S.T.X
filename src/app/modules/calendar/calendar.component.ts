@@ -29,10 +29,7 @@ export class CalendarComponent {
 
   @ViewChild(FullCalendarComponent) calendar: FullCalendarComponent;
   load() {
-    if (this.isRender) {
-      this.isRender = false;
-      this.calendar.getApi().render();
-    }
+  
   }
 
   private initCalendar(): CalendarOptions {
