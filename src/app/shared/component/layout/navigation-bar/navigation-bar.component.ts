@@ -31,6 +31,10 @@ export class NavigationBarComponent implements OnInit {
     this.tabViewService.currentComponent
       .subscribe((componentName: string) => {
         this.router.navigate(['/', componentName]);
+        if (componentName === 'auth') {
+          console.log('auth');
+          this.router.navigate(['/auth']);
+        }
         this.activeItem = this.listMenus?.find((menu: any) => menu.component === componentName);
       });
   }

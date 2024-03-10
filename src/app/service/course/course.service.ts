@@ -12,5 +12,5 @@ export interface CourseModel extends BaseModel {
 
 @Injectable({ providedIn: 'root' })
 export class CourseService extends BaseService<CourseModel> {
-  public override path: string = "chat";
+  public override path: string = "course";
 }

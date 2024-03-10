@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CourseControlComponent } from './course-control/course-control.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { CourseCreateComponent } from './course-create/course-create.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'create',
-    component: CourseControlComponent,
+    component: CourseCreateComponent,
   },
   {
     path: ':id',
@@ -29,6 +30,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     CourseComponent,
+    CourseCreateComponent,
     CourseControlComponent,
     CourseListComponent,
     CourseDetailComponent
@@ -37,6 +39,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
     PrimeNGModule,
     SharedModule,
     RouterModule.forChild(routes),

@@ -1,1 +1,151 @@
-<p>course-create works!</p>
+<div class="p-card p-2">
+  <p-breadcrumb [model]="items" styleClass="border-none" class="max-w-full cursor-pointer text-500">
+  </p-breadcrumb>
+</div>
+
+<div class="p-card mt-2 p-3 ">
+  <div class="text-lg text-900 font-medium  mt-2">
+    <span>เพิ่มรายวิชาใหม่</span>
+  </div>
+  <p-divider></p-divider>
+  <div>
+
+    <div [formGroup]="formData">
+      @for (item of listForm; track $index) {
+        @if (item.type === 'text') {
+          <div class="grid">
+            <div class="col-12 md:col-2">
+              <label [for]="item.name" class="font-medium text-900">{{item.label}}</label>
+            </div>
+            <div class="col-12 md:col-10">
+              <input pInputText 
+                type="text"  
+                [id]="item.name" 
+                [placeholder]="item.label"
+                class="p-inputtext-sm w-full"
+                [formControlName]="item.name">
+            </div>
+          </div>
+        }
+        @else if (item.type === 'number') {
+          <div class="grid">
+            <div class="col-12 md:col-2">
+              <label [for]="item.name" class="font-medium text-900">{{item.label}}</label>
+            </div>
+            <div class="col-12 md:col-10">
+              <input pInputText 
+                [id]="item.name" 
+                type="text"  
+                pKeyFilter="num"
+                maxlength="2"
+                [placeholder]="item.label"
+                class="p-inputtext-sm w-full"
+                [formControlName]="item.name">
+            </div>
+          </div>
+        }
+        @else if (item.type === 'year') {
+          <div class="grid">
+            <div class="col-12 md:col-2">
+              <label [for]="item.name" class="font-medium text-900">{{item.label}}</label>
+            </div>
+            <div class="col-12 md:col-10">
+              <input pInputText 
+                [id]="item.name" 
+                type="text"  
+                pKeyFilter="int"
+                maxlength="4"
+                [placeholder]="item.label"
+                class="p-inputtext-sm w-full"
+                [formControlName]="item.name">
+            </div>
+          </div>
+        }
+        @else if (item.type === 'textarea') {
+          <div class="grid">
+            <div class="col-12 md:col-2">
+              <label [for]="item.name" class="font-medium text-900">{{item.label}}</label>
+            </div>
+            <div class="col-12 md:col-10">
+              <textarea
+                pInputTextarea 
+                [id]="item.name"  
+                [autoResize]="true"
+                rows="5"
+                [placeholder]="item.label"
+                class="p-inputtext-sm w-full"
+                [formControlName]="item.name">
+              </textarea>
+            </div>
+          </div>
+        }
+        @else if (item.type === 'tag') {
+          <div class="grid">
+            <div class="col-12 md:col-2">
+              <label [for]="item.name" class="font-medium text-900">{{item.label}}</label>
+            </div>
+            <div class="col-12 md:col-10">
+              <div class="w-full">
+                <p-chips 
+                  [formControlName]="item.name">
+                </p-chips>
+              </div>
+            </div>
+          </div>
+        }
+        @else if (item.type === 'file') {
+          <div class="grid">
+            <div class="col-12 md:col-2">
+              <label [for]="item.name" class="font-medium text-900">{{item.label}}</label>
+            </div>
+            <div class="col-12 md:col-10">
+              @if (fileUpload) {
+                <div class="overflow-hidden">
+                  <img [src]="fileUpload.objectURL" alt=""  class="w-full ">
+                </div>
+              }
+              <div class="flex">
+                <p-fileUpload 
+                  mode="basic" name="demo[]" 
+                  [auto]="true"
+                  [chooseLabel]="'อัพโหลด'"
+                  url="https://bestxstorage.s3.amazonaws.com/" 
+                  class="p-button-sm"
+                  accept="image/* " [maxFileSize]="1000000" 
+                  (onUpload)="onUploadFile($event)"  
+                  chooseLabel="Browse">
+                </p-fileUpload>
+                @if (fileUpload) {
+                  <button 
+                    pButton 
+                    label="ยกเลิก" 
+                    icon="pi pi-refresh" 
+                    class="ml-2 p-button-danger p-button-sm"
+                    (click)="clearFileUpload()">
+                  </button>
+                }
+              </div>
+            </div>
+          </div>
+        }
+        @else if (item.type === 'divider') {
+          <div class="grid">
+            <div class="col-12 md:col-2">
+            </div>
+            <div class="col-12 md:col-10">
+                <p-divider></p-divider>
+            </div>
+          </div>
+        }
+      }
+    </div>
+
+    <p-divider></p-divider>
+    <button pButton pRipple 
+      label="เพิ่มรายวิชา" 
+      icon="pi pi-file-edit" 
+      class="p-button-sm w-full"
+      (click)="createCourse()">
+    </button>
+  </div>
+</div>

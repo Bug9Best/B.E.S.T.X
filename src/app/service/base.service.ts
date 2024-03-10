@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment'
 import { Observable, Subject, TapObserver, tap } from 'rxjs';
 import { BaseModel } from './base.model';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +35,7 @@ export class BaseService<T extends BaseModel>   {
   }
 
   get getBaseUrl(): string {
-    return this.baseUrl;
+    return this.baseUrl + this.path;
   }
 
   getAll(): Observable<T[]> {
@@ -48,6 +48,7 @@ export class BaseService<T extends BaseModel>   {
 
   create(data: any): Observable<T> {
     return this.http.post<T>(this.getBaseUrl, data);
+    // return this.http.post<T>(this.getBaseUrl, data).pipe(tap(this.itemChange));
   }
 
   update(id: string, data: any): Observable<T> {
